@@ -1,0 +1,22 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: raw
+    tables:
+      - name: telegram_messages
+        description: "Raw telegram messages loaded from JSON lake into Postgres."
+
+models:
+  - name: stg_telegram_messages
+    description: "Cleaned and standardized telegram messages for analytics."
+    columns:
+      - name: message_id
+        description: "Telegram message ID."
+        tests: [not_null]
+      - name: channel_name
+        description: "Normalized telegram channel name."
+        tests: [not_null]
+      - name: message_ts
+        description: "Timestamp (UTC-aware)."
+        tests: [not_null]
