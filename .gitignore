@@ -14,8 +14,98 @@ logs/dbt.log
 
 # data (raw lake + images)
 data/raw/
+data/processed
 logs/
 
 # OS/editor
 .DS_Store
 .vscode/*.log
+################################
+# Python
+################################
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Python build artifacts
+build/
+dist/
+*.egg-info/
+
+################################
+# dbt
+################################
+# dbt generated directories
+dbt_packages/
+target/
+logs/
+
+# dbt user config (local only)
+.profiles.yml
+
+################################
+# Data files (VERY important)
+################################
+data/
+raw_data/
+processed_data/
+
+# Common data formats
+*.csv
+*.parquet
+*.json
+*.xlsx
+
+################################
+# Secrets & environment variables
+################################
+.env
+.env.*
+*.key
+*.pem
+secrets.yml
+credentials.json
+
+################################
+# Logs
+################################
+*.log
+
+################################
+# Jupyter / notebooks
+################################
+.ipynb_checkpoints/
+
+################################
+# Docker
+################################
+docker-compose.override.yml
+*.tar
+
+################################
+# OS files
+################################
+.DS_Store
+Thumbs.db
+
+################################
+# IDEs / Editors
+################################
+# VS Code
+.vscode/
+
+# PyCharm / IntelliJ
+.idea/
+
+################################
+# Testing & coverage
+################################
+.pytest_cache/
+.coverage
+htmlcov/

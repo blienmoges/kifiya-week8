@@ -2,17 +2,16 @@ version: 2
 
 models:
   - name: dim_channels
-    description: "Channel dimension with aggregated stats."
+    description: "Channel dimension."
     columns:
       - name: channel_key
         description: "Surrogate key for channel."
         tests: [unique, not_null]
       - name: channel_name
-        description: "Normalized channel name."
         tests: [unique, not_null]
 
   - name: dim_dates
-    description: "Date dimension used for time-based analysis."
+    description: "Date dimension."
     columns:
       - name: date_key
         tests: [unique, not_null]
@@ -20,7 +19,7 @@ models:
         tests: [unique, not_null]
 
   - name: fct_messages
-    description: "Fact table: one row per Telegram message."
+    description: "Fact table for telegram messages."
     columns:
       - name: message_id
         tests: [unique, not_null]
@@ -36,3 +35,22 @@ models:
           - relationships:
               to: ref('dim_dates')
               field: date_key
+  - name: fct_image_detections
+    description: "YOLO detections joined to messages for analysis."
+    columns:
+      - name: message_id
+        tests: [not_null]
+      - name: channel_key
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_channels')
+                field: channel_key
+      - name: date_key
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_dates')
+                field: date_key
