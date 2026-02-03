@@ -3,3 +3,6 @@ python-dotenv==1.0.1
 psycopg2-binary==2.9.9
 dbt-postgres==1.8.2
 pytest==8.2.0
+dagster
+dagster-webserver
+dagster-postgres

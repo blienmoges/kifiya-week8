@@ -109,3 +109,25 @@ Thumbs.db
 .pytest_cache/
 .coverage
 htmlcov/
+
+# secrets
+.env
+
+# python
+__pycache__/
+*.pyc
+.venv/
+*.egg-info/
+
+# dbt
+target/
+dbt_packages/
+logs/dbt.log
+
+# data (raw lake + images)
+data/raw/
+logs/
+
+# OS/editor
+.DS_Store
+.vscode/*.log

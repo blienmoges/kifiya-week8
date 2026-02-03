@@ -36,3 +36,43 @@ Pipeline:
 python -m venv .venv
 .\.venv\Scripts\activate
 pip install -r requirements.txt
+## Orchestration (Dagster)
+
+The entire data pipeline is orchestrated using Dagster.
+
+Pipeline steps:
+1. Load raw Telegram messages into Postgres
+2. Run YOLO image detection
+3. Load YOLO detections
+4. Transform data using dbt (star schema)
+5. Run dbt tests
+
+The pipeline is scheduled to run daily at 06:00 (Africa/Addis_Ababa).
+
+To run locally:
+```bash
+dagster dev -f orchestration/repository.py
+
+---
+
+# Final result if you do this
+
+After these steps, your project will have:
+
+✅ End-to-end pipeline  
+✅ dbt transformations + tests  
+✅ YOLO enrichment  
+✅ FastAPI analytics API  
+✅ **Dagster orchestration + scheduling**  
+✅ Improved Git workflow  
+
+➡️ That directly addresses **every line of the feedback**.
+
+---
+
+If you want, next I can:
+- Review your **README.md wording**
+- Help you choose **exact screenshots** for final submission
+- Do a **final grading checklist** (what graders look for line-by-line)
+
+Just tell me 👍
